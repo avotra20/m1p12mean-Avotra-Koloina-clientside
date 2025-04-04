@@ -9,4 +9,4 @@ export const mecanicienUrl = `${BASE_URL}/mecaniciens`;
 export const managerUrl = `${BASE_URL}/manager`;
 export const clientUrl = `${BASE_URL}/clients`;
 export const missionUrl = `${BASE_URL}/missions`;
-
+export const vehiculeUrl = `${BASE_URL}/vehicule`;

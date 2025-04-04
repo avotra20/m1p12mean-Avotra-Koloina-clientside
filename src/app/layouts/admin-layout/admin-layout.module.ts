@@ -16,6 +16,8 @@ import { CreateMecanicienComponent } from '../../pages/mecanicien/create-mecanic
 import { MecanicienComponent } from 'src/app/pages/mecanicien/mecanicien.component';
 import { CreateUserComponent } from 'src/app/pages/user/create-user.componenent';
 import { UserListingComponent } from 'src/app/pages/user/user-listing.component.';
+import { VehiculeListComponent } from 'src/app/pages/vehicule/vehicule-list.component';
+import { CreateVehiculeComponent } from 'src/app/pages/vehicule/create-vehicule.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -30,6 +32,8 @@ import { UserListingComponent } from 'src/app/pages/user/user-listing.component.
   declarations: [
     DashboardComponent,
     UserProfileComponent,
+    CreateVehiculeComponent,
+    VehiculeListComponent,
     TablesComponent,
     IconsComponent,
     MapsComponent,

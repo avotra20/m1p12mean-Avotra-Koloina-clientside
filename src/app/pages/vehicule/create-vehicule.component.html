@@ -1,0 +1,65 @@
+<div class="container mt-5">
+    <div class="header bg-gradient-danger py-7 py-lg-8">
+      <div class="container">
+        <div class="header-body mb-7">
+          <div class="row align-items-center justify-content-between">
+            <div class="col">
+              <h1 class="text-white">Créer un Véhicule</h1>
+              <p class="text-lead text-light">Veuillez remplir les informations pour créer un nouveau véhicule</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </div>
+  
+    <div class="container mt--8 pb-5">
+      <div *ngIf="creationMessage" class="alert" [ngClass]="{'alert-success': creationMessage.includes('avec succès'), 'alert-danger': creationMessage.includes('Erreur') }">
+        {{ creationMessage }}
+      </div>
+  
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5">
+              <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="immatriculation">Immatriculation</label>
+                  <input [(ngModel)]="immatriculation" name="immatriculation" type="text" class="form-control" id="immatriculation" placeholder="Immatriculation" required>
+                </div>
+  
+                <div class="form-group">
+                  <label for="marque">Marque</label>
+                  <input [(ngModel)]="marque" name="marque" type="text" class="form-control" id="marque" placeholder="Marque" required>
+                </div>
+  
+                <div class="form-group">
+                  <label for="modele">Modèle</label>
+                  <input [(ngModel)]="modele" name="modele" type="text" class="form-control" id="modele" placeholder="Modèle" required>
+                </div>
+  
+                <div class="form-group">
+                  <label for="annee">Année</label>
+                  <input [(ngModel)]="annee" name="annee" type="number" class="form-control" id="annee" placeholder="Année" required>
+                </div>
+  
+                <div class="form-group">
+                  <label for="clientId">Client</label>
+                  <select [(ngModel)]="clientId" name="clientId" class="form-control" id="clientId" required>
+                    <option *ngFor="let client of filteredClients" [value]="client._id">{{ client.nom }} {{ client.prenom }} ({{ client.nomUtilisateur }})</option>
+                  </select>
+                </div>
+  
+                <button type="submit" class="btn btn-primary btn-block">Créer le Véhicule</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

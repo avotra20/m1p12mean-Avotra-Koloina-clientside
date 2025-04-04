@@ -8,6 +8,8 @@ import { MecanicienComponent } from 'src/app/pages/mecanicien/mecanicien.compone
 import { CreateMecanicienComponent } from 'src/app/pages/mecanicien/create-mecanicien.component';
 import { CreateUserComponent } from 'src/app/pages/user/create-user.componenent';
 import { UserListingComponent } from 'src/app/pages/user/user-listing.component.';
+import { CreateVehiculeComponent } from 'src/app/pages/vehicule/create-vehicule.component';
+import { VehiculeListComponent } from 'src/app/pages/vehicule/vehicule-list.component';
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
@@ -17,6 +19,8 @@ export const AdminLayoutRoutes: Routes = [
     {path : 'mecanicien' ,  component: MecanicienComponent},
     {path: 'create-mecanicien' , component: CreateMecanicienComponent},
     {path: 'create-user' ,  component:  CreateUserComponent},
-    {path: 'userList' , component: UserListingComponent}
+    {path: 'userList' , component: UserListingComponent},
+    {path: 'vehicule', component: VehiculeListComponent},
+    {path: "create-vehicule" , component: CreateVehiculeComponent}
     
 ];

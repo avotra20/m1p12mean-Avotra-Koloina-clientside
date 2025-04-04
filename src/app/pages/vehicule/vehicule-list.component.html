@@ -1,0 +1,56 @@
+<div class="header bg-gradient-danger py-7 py-lg-8">
+    <div class="container">
+      <div class="header-body mb-7">
+        <div class="row align-items-center justify-content-between">
+          <div class="col">
+            <h1 class="text-white">Liste des Véhicules</h1>
+            <p class="text-lead text-light">Tous les véhicules enregistrés dans le système</p>
+          </div>
+          <div class="col-auto">
+            <button (click)="onCreateVehicule()" class="btn btn-primary">
+              Créer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="separator separator-bottom separator-skew zindex-100">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </div>
+  
+  <div class="container mt--8 pb-5">
+    <div *ngIf="errorMessage" class="alert alert-danger text-center">
+      {{ errorMessage }}
+    </div>
+  
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="card bg-secondary shadow border-0">
+          <div class="card-body px-lg-5 py-lg-5">
+            <div class="row">
+              <div class="col-md-6" *ngFor="let v of vehicules">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title text-primary">{{ v.marque }} {{ v.modele }}</h5>
+                    <p class="card-text">
+                      <strong>Immatriculation:</strong> {{ v.immatriculation }}<br>
+                      <strong>Année:</strong> {{ v.annee }}<br>
+                      <strong>Client ID:</strong> {{ v.clientId }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div *ngIf="vehicules.length === 0" class="text-center text-muted mt-4">
+              Aucun véhicule à afficher.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
