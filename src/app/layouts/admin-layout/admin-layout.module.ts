@@ -14,6 +14,8 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateMecanicienComponent } from '../../pages/mecanicien/create-mecanicien.component';
 import { MecanicienComponent } from 'src/app/pages/mecanicien/mecanicien.component';
+import { CreateUserComponent } from 'src/app/pages/user/create-user.componenent';
+import { UserListingComponent } from 'src/app/pages/user/user-listing.component.';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -32,7 +34,9 @@ import { MecanicienComponent } from 'src/app/pages/mecanicien/mecanicien.compone
     IconsComponent,
     MapsComponent,
     MecanicienComponent,
-    CreateMecanicienComponent
+    CreateMecanicienComponent,
+    CreateUserComponent,
+    UserListingComponent
   ]
 })
 

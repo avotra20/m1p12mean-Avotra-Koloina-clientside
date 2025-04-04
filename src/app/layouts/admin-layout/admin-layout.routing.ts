@@ -6,7 +6,8 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { MecanicienComponent } from 'src/app/pages/mecanicien/mecanicien.component';
 import { CreateMecanicienComponent } from 'src/app/pages/mecanicien/create-mecanicien.component';
-
+import { CreateUserComponent } from 'src/app/pages/user/create-user.componenent';
+import { UserListingComponent } from 'src/app/pages/user/user-listing.component.';
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
@@ -14,6 +15,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     {path : 'mecanicien' ,  component: MecanicienComponent},
-    {path: 'create-mecanicien' , component: CreateMecanicienComponent}
+    {path: 'create-mecanicien' , component: CreateMecanicienComponent},
+    {path: 'create-user' ,  component:  CreateUserComponent},
+    {path: 'userList' , component: UserListingComponent}
     
 ];

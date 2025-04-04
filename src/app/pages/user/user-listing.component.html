@@ -1,0 +1,71 @@
+
+    <div class="header bg-gradient-danger py-7 py-lg-8">
+      <div class="container">
+        <div class="header-body mb-7">
+          <div class="row align-items-center justify-content-between">
+            <div class="col">
+              <h1 class="text-white">Liste des Utilisateurs</h1>
+              <p class="text-lead text-light">Tous les utilisateurs actuellement actifs dans le système</p>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-primary" (click)="onCreateUser()">
+                  Créer
+                </button>
+              </div>
+              
+              
+          </div>
+        </div>
+      </div>
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </div>
+  
+    <!-- Main Container for the List of Users -->
+    <div class="container mt--8 pb-5">
+      <!-- Error Message if any -->
+      <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+  
+      <!-- Row for Displaying User Cards -->
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="row">
+                <!-- Loop to display users -->
+                <div class="col-md-6" *ngFor="let user of users">
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title text-primary">{{ user.nomUtilisateur }}</h5>
+                      <p class="card-text">
+                        <strong>Role :</strong> {{ user.role }}
+                      </p>
+                      <p class="card-text">
+                        <strong>Statut :</strong>
+                        <span [class.text-success]="user.actif" [class.text-danger]="!user.actif">
+                          {{ user.actif ? 'Actif' : 'Inactif' }}
+                        </span>
+                      </p>
+                      <div class="d-flex justify-content-between">
+                        <button class="btn btn-info btn-sm" (click)="editUser(user)">Modifier</button>
+                        <button class="btn btn-danger btn-sm" (click)="deleteUser(user)">Supprimer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Message when no users are available -->
+              <div *ngIf="users.length === 0" class="text-center text-muted mt-4">
+                Aucun utilisateur à afficher.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  

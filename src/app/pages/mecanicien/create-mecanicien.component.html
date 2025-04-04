@@ -1,52 +1,74 @@
-<div class="header bg-gradient-danger py-7 py-lg-8">
-    <div class="container">
-      <div class="header-body text-center mb-7">
-        <div class="row justify-content-center">
-          <div class="col-lg-5 col-md-6">
-            <h1 class="text-white">Créer un mécanicien</h1>
-            <p class="text-lead text-light">Remplissez le formulaire pour enregistrer un nouveau mécanicien.</p>
-          </div>
-        </div>
+<div class="container mt-5">
+    <h2 class="text-center">Créer un Mécanicien</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nomUtilisateur">Nom d'utilisateur</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nom d'utilisateur"
+          [(ngModel)]="nomUtilisateur"
+          name="nomUtilisateur"
+          required
+        />
       </div>
-    </div>
-    <div class="separator separator-bottom separator-skew zindex-100">
-      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none">
-        <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-      </svg>
-    </div>
-  </div>
+      <div class="form-group">
+        <label for="motdepasse">Mot de passe</label>
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Mot de passe"
+          [(ngModel)]="motdepasse"
+          name="motdepasse"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Nom"
+          [(ngModel)]="nom"
+          name="nom"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="prenom">Prénom</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Prénom"
+          [(ngModel)]="prenom"
+          name="prenom"
+          required
+        />
+      </div>
   
-  <div class="container mt--8 pb-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-5 col-md-7">
-        <div class="card bg-secondary shadow border-0">
-          <div class="card-header bg-transparent pb-5">
-            <div class="text-muted text-center mt-2 mb-3"><small>Ajouter un nouveau</small></div>
-          </div>
-          <div class="card-body px-lg-5 py-lg-5">
-            <form role="form" (ngSubmit)="onSubmit()">
-              <div class="form-group mb-3">
-                <input type="text" class="form-control" placeholder="Nom d'utilisateur" [(ngModel)]="nomUtilisateur" name="nomUtilisateur" required>
-              </div>
-              <div class="form-group mb-3">
-                <input type="password" class="form-control" placeholder="Mot de passe" [(ngModel)]="motdepasse" name="motdepasse" required>
-              </div>
-              <div class="form-group mb-3">
-                <input type="text" class="form-control" placeholder="Nom" [(ngModel)]="nom" name="nom" required>
-              </div>
-              <div class="form-group mb-3">
-                <input type="text" class="form-control" placeholder="Prénom" [(ngModel)]="prenom" name="prenom" required>
-              </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-primary my-4">Créer</button>
-              </div>
-            </form>
-            <div *ngIf="creationMessage" class="alert alert-info mt-3" role="alert">
-              {{ creationMessage }}
-            </div>
-          </div>
-        </div>
+      <button type="submit" class="btn btn-primary btn-block">Créer</button>
+    </form>
+  
+    <!-- Bootstrap Toast -->
+    <div
+      *ngIf="creationMessage"
+      class="toast position-fixed bottom-0 end-0 m-3"
+      [ngClass]="{
+        'bg-success': creationMessage === 'Mécanicien créé avec succès.',
+        'bg-danger': creationMessage !== 'Mécanicien créé avec succès.'
+      }"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+      [hidden]="!creationMessage"
+      [ngStyle]="{ opacity: creationMessage ? 1 : 0 }"
+      [@fadeInOut]
+    >
+      <div class="toast-header">
+        <strong class="me-auto">Message</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
+      <div class="toast-body">{{ creationMessage }}</div>
     </div>
   </div>
   

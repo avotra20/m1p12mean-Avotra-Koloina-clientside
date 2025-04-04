@@ -38,10 +38,16 @@ export class CreateMecanicienComponent {
     this.http.post(mecanicienUrl, payload, { headers }).subscribe({
       next: () => {
         this.creationMessage = 'Mécanicien créé avec succès.';
-    
       },
       error: (err) => {
-        this.creationMessage = err.error?.message || 'Erreur lors de la création.';
+        if (err.status === 403) {
+          this.creationMessage = 'Non autorisé. Veuillez vérifier vos permissions.';
+        } else if (err.status === 401 && err.error?.error?.includes('expired')) {
+          this.creationMessage = 'Session expirée. Veuillez vous reconnecter.';
+          setTimeout(() => this.router.navigate(['/login']), 2000);
+        } else {
+          this.creationMessage = err.error?.message || 'Erreur lors de la création.';
+        }
       }
     });
   }

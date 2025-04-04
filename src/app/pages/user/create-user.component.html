@@ -1,0 +1,64 @@
+<div class="header bg-gradient-danger py-7 py-lg-8">
+    <div class="container">
+      <div class="header-body mb-7">
+        <div class="row align-items-center justify-content-between">
+          <div class="col">
+            <h1 class="text-white">Création d'un Utilisateur</h1>
+            <p class="text-lead text-light">Remplissez le formulaire pour ajouter un nouvel utilisateur</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="separator separator-bottom separator-skew zindex-100">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </div>
+  
+  <div class="container mt--8 pb-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card bg-secondary shadow border-0">
+          <div class="card-body px-lg-5 py-lg-5">
+            <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+              <div class="form-group mb-3">
+                <input type="text" class="form-control" placeholder="Nom d'utilisateur" [(ngModel)]="nomUtilisateur" name="nomUtilisateur" required>
+              </div>
+  
+              <div class="form-group mb-3">
+                <input type="password" class="form-control" placeholder="Mot de passe" [(ngModel)]="motdepasse" name="motdepasse" required>
+              </div>
+  
+              <div class="form-group mb-3">
+                <input type="text" class="form-control" placeholder="Nom" [(ngModel)]="nom" name="nom" required>
+              </div>
+  
+              <div class="form-group mb-3">
+                <input type="text" class="form-control" placeholder="Prénom" [(ngModel)]="prenom" name="prenom" required>
+              </div>
+              <div class="form-group">
+                <label for="role">Rôle</label>
+                <select id="role" class="form-control" [(ngModel)]="role" name="role" required>
+                  <option value="" disabled selected>Sélectionnez un rôle</option>
+                  <option value="client">Client</option>
+                  <option value="manager">Manager</option>
+                  <option value="mecanicien">Mécanicien</option>
+                </select>
+              </div>
+              
+  
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary my-4" [disabled]="!userForm.form.valid">Créer</button>
+              </div>
+            </form>
+  
+            <div *ngIf="creationMessage" class="alert alert-info mt-3 text-center">
+              {{ creationMessage }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
